@@ -1,0 +1,135 @@
+
+<div class="containerdash">
+		<div class="navigation">
+			<ul>
+				<li>
+					<a >
+						
+						<span class="title"><h2> APOLO LTDA </h2></span>
+					</a>
+				</li>
+				
+			 
+
+				<li>
+					<a href="/dashboard/personal">
+						<span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+						<span class="title">Personal</span>
+					</a>
+				</li>
+
+				
+				<li>
+					<a href="/dashboard/proyectos">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Proyectos</span>
+					</a>
+				</li>
+				<li>
+					<a href="/dashboard/SubProyectos">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Sub Proyectos</span>
+					</a>
+				</li>
+				<li>
+					<a href="/dashboard/SubFases">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Sub Fases </span>
+					</a>
+				</li>
+			  
+			    <li>
+					<a href="/dashboard/grupos">
+						<span class="icon"><i class="fas fa-layer-group fa-lg" aria-hidden="true"></i></span>
+						<span class="title">grupos</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="/authentication/logout">
+						<span class="icon"><i  class="fas fa-sign-out-alt" aria-hidden="true"></i></span>
+						<span class="title">Sign Out</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="main">
+			<div class="topbar">
+				<div class="toggle" onclick="toggleMenu()"></div>
+				
+			</div>
+		
+
+			<div class="details">
+				<div class="recentOrders">
+					<div class="cardHeader">
+						<h2>Mi Informacion </h2>
+						
+					</div>
+					 
+							
+         <div class="table_responsive">
+  <table>
+    <thead>
+      <tr>
+        <th>Nro</th>
+        <th>Nombre </th>
+        <th>email </th>
+		<th>telefono </th>
+		<th>Titulación </th>
+		<th>Opciones</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+     {{#each miInformacion}}
+      <tr>
+        <td>{{idUsuario}}</td>
+        <td>{{username}}</td>
+        <td>{{email}}</td>
+        <td>{{telfono}}</td>
+		{{#if cargo }}
+		<td>{{cargo}}</td>
+		{{else}}
+		<td>no tiene</td>
+		{{/if}}
+		
+        <td>
+          <span class="action_btn">
+            <a href="/dashboard/editarInfoPesso/{{idEquipo}}">Editar</a>
+            <a href="/dashboard/eliminarPersEquipo/{{idEquipo}}">Eliminar</a>
+			
+          </span>
+        </td>
+      </tr>
+
+   
+      {{/each}}
+
+      
+    </tbody>
+  <span class="status delivered">
+    	<a href="/dashboard/adicionarPersEquipo" >ADICIONAR PERSONAL
+		
+		</a>
+  </span>
+  </table>
+
+</div>
+
+
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		function toggleMenu(){
+			let navigation = document.querySelector('.navigation');
+			let toggle = document.querySelector('.toggle');
+			let main = document.querySelector('.main');
+			navigation.classList.toggle('active');
+			toggle.classList.toggle('active');
+			main.classList.toggle('active');
+		}
+	</script>

@@ -1,0 +1,149 @@
+<div class="containerdash">
+		<div class="navigation">
+			<ul>
+				<li>
+					<a >
+						
+						<span class="title"><h2> APOLO LTDA </h2></span>
+					</a>
+				</li>
+				
+			   <li>
+					<a href="/dashboard/proyectos">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Mi Informacion</span>
+					</a>
+				</li>
+
+
+				<li>
+					<a href="/dashboard/proyectos">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Proyectos</span>
+					</a>
+				</li>
+				<li>
+					<a href="/dashboard/SubProyectos">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Sub Proyectos</span>
+					</a>
+				</li>
+				<li>
+					<a href="/dashboard/SubFases">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Sub Fases </span>
+					</a>
+				</li>
+			  
+			    <li>
+					<a href="/dashboard/grupos">
+						<span class="icon"><i class="fas fa-layer-group fa-lg" aria-hidden="true"></i></span>
+						<span class="title">grupos</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="/authentication/logout">
+						<span class="icon"><i  class="fas fa-sign-out-alt" aria-hidden="true"></i></span>
+						<span class="title">Sign Out</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="main">
+			<div class="topbar">
+				<div class="toggle" onclick="toggleMenu()"></div>
+				
+			</div>
+		
+
+			<div class="details">
+				<div class="recentOrders">
+					<div class="cardHeader">
+						<h2>Equipos Disponibles </h2>
+						
+					</div>
+					 
+		 {{#each infoEquiposEnc}}	
+
+         <div class="table_responsive">
+  <table>
+    <thead>
+     
+		<div class="cardHeader">
+			<h5> equipo<br> {{idEquipo}} </h5>
+			<h5> proyecto <br> {{idProyecto}} </h5>
+			<h5> subpro<br>  {{idSubPro}} </h5>
+			<h5> subfas <br>{{idSubFases}} </h5>
+           </div>
+      <tr>
+        <th>Username</th>
+        <th>Numero</th>
+        <th>Email</th>
+		
+        
+      </tr>
+    </thead>
+
+    <tbody>
+     
+    {{#if grupos}}
+        {{#each grupos}}
+      <tr>
+		 
+		
+        {{#if username }}
+        <td>{{username}}</td>
+		{{else}}
+		 <td></td>
+		 {{/if}}
+		 {{#if telefono }}
+        <td>{{telefono}}</td>
+		{{else}}
+		 <td></td>
+		 {{/if}}
+		 {{#if email }}
+        <td>{{email}}</td>
+		{{else}}
+		 <td>no tiene</td>
+		 {{/if}}
+		 
+		</tr>
+        {{/each}}
+		{{else}}
+		<td>no tiene</td>
+		<td>no tiene</td>
+		<td>no tiene</td>
+		{{/if}}
+       
+      
+
+      
+      
+      
+    </tbody>
+    
+  
+  </table>
+
+</div>
+{{/each}}
+
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function toggleMenu(){
+			let navigation = document.querySelector('.navigation');
+			let toggle = document.querySelector('.toggle');
+			let main = document.querySelector('.main');
+			navigation.classList.toggle('active');
+			toggle.classList.toggle('active');
+			main.classList.toggle('active');
+		}
+	</script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+        var socket = io();
+		
+    </script>

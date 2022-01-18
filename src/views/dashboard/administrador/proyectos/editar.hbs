@@ -1,0 +1,140 @@
+<div class="containerdash">
+		<div class="navigation">
+			<ul>
+				<li>
+					<a >
+						
+						<span class="title"><h2> APOLO LTDA </h2></span>
+					</a>
+				</li>
+				
+			 
+
+				<li>
+					<a href="/dashboard/personal">
+						<span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+						<span class="title">Personal</span>
+					</a>
+				</li>
+
+				
+				<li>
+					<a href="/dashboard/proyectos">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Proyectos</span>
+					</a>
+				</li>
+				<li>
+					<a href="/dashboard/SubProyectos">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Sub Proyectos</span>
+					</a>
+				</li>
+				<li>
+					<a href="/dashboard/SubFases">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Sub Fases </span>
+					</a>
+				</li>
+			  
+			    <li>
+					<a href="/dashboard/grupos">
+						<span class="icon"><i class="fas fa-layer-group fa-lg" aria-hidden="true"></i></span>
+						<span class="title">grupos</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="/authentication/logout">
+						<span class="icon"><i  class="fas fa-sign-out-alt" aria-hidden="true"></i></span>
+						<span class="title">Sign Out</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="main">
+			<div class="topbar">
+				<div class="toggle" onclick="toggleMenu()"></div>
+				
+			</div>
+		
+
+			<div class="details">
+				<div class="recentOrders">
+					<div class="cardHeader">
+						<h2>Editar la información del proyecto </h2>
+						
+					</div>
+					 
+							
+         <div class="table_responsive">
+  <table>
+    <thead>
+      <tr>
+        <th>Codigo</th>
+        <th>Username</th>
+        <th>Numero</th>
+        <th>fecha inicio</th>
+		<th>fecha fin</th>
+		<th>estado </th>
+		<th>Opciones</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+     {{#each infProy}}
+      <tr>
+       <form action="/dashboard/editarInfoProyec" method="post"> 
+            <td>
+                <input type="number"   value="{{idProyecto}}" name="idProyecto" readonly>
+            </td>
+            <td>
+                <input type="text"   value="{{nombre}}" name="nombre" >
+            </td>
+            <td>
+                <input type="text"  value="{{descripcion}}" name="descripcion" >
+            </td>
+            <td>
+                <input type="text"  value="{{fecha_inicio}}" name="fecha_inicio" >
+            </td>
+             <td>
+                <input type="text"  value="{{fecha_fin}}" name="fecha_fin" >
+            </td>
+			 <td>
+                <input type="text"  value="{{estado}}" name="estado" >
+            </td>
+            <td>
+            <span class="action_btn">
+                <input type="submit" value="confirmar cambios">
+            </span>
+            </td>
+            </tr>
+       </form>
+   
+      {{/each}}
+    </tbody>
+  </table>
+
+</div>
+
+
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		function toggleMenu(){
+			let navigation = document.querySelector('.navigation');
+			let toggle = document.querySelector('.toggle');
+			let main = document.querySelector('.main');
+			navigation.classList.toggle('active');
+			toggle.classList.toggle('active');
+			main.classList.toggle('active');
+		}
+	</script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+         var socket = io();
+
+    </script>

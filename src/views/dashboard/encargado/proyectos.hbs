@@ -1,0 +1,125 @@
+
+<div class="containerdash">
+		<div class="navigation">
+			<ul>
+				<li>
+					<a >
+						
+						<span class="title"><h2> APOLO LTDA </h2></span><br>
+						<span class="title"><h2> Encargado </h2></span>
+					</a>
+				</li>
+				
+			 
+
+				<li>
+					<a href="/dashboard/personal">
+						<span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+						<span class="title">Personal</span>
+					</a>
+				</li>
+
+				
+				<li>
+					<a href="/dashboard/proyectos">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Proyectos</span>
+					</a>
+				</li>
+				<li>
+					<a href="/dashboard/SubProyectos">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Sub Proyectos</span>
+					</a>
+				</li>
+				<li>
+					<a href="/dashboard/SubFases">
+						<span class="icon"><i class="fa fa-list-alt" aria-hidden="true"></i></span>
+						<span class="title">Sub Fases </span>
+					</a>
+				</li>
+			  
+			    <li>
+					<a href="/dashboard/grupos">
+						<span class="icon"><i class="fas fa-layer-group fa-lg" aria-hidden="true"></i></span>
+						<span class="title">grupos</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="/authentication/logout">
+						<span class="icon"><i  class="fas fa-sign-out-alt" aria-hidden="true"></i></span>
+						<span class="title">Sign Out</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="main">
+			<div class="topbar">
+				<div class="toggle" onclick="toggleMenu()"></div>
+				
+			</div>
+		
+
+			<div class="details">
+				<div class="recentOrders">
+					<div class="cardHeader">
+						<h2>Mis Proyectos </h2>
+						
+					</div>
+					 
+							{{#each proyectosEnc}}
+         <div class="table_responsive">
+  <table>
+    <thead>
+	
+      <tr>
+		  <th>nro de proyecto</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Inicio</th>
+        <th>Fin</th>
+		<th>estado</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+		  {{#each proyecto}}
+		  <td>{{idProyecto}}</td>
+        <td>{{nombre}}</td>
+        <td>{{descripcion}}</td>
+	     <td>{{fecha_inicio}}</td>
+          <td>{{fecha_fin}}</td>
+		  <td>{{estado}}</td>
+        <td>
+          <span class="action_btn">
+            <a href="/dashboard/confirmarPro/{{idProyecto}}">finalizar</a>
+         
+          </span>
+        </td>
+		{{/each}}
+      </tr>
+      
+
+    </tbody>
+  </table>
+
+</div>
+{{/each}}
+
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		function toggleMenu(){
+			let navigation = document.querySelector('.navigation');
+			let toggle = document.querySelector('.toggle');
+			let main = document.querySelector('.main');
+			navigation.classList.toggle('active');
+			toggle.classList.toggle('active');
+			main.classList.toggle('active');
+		}
+	</script>
