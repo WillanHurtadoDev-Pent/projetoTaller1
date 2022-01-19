@@ -1427,7 +1427,7 @@ router.get('/confirmarSubPro/:idSubPro',isLoggedIn,async(req,res)=>{
 router.get('/confirmarSubFase/:idSubFases',isLoggedIn,async(req,res)=>{
   if(req.session.priv || req.session.usuario ){
     const priv = req.session.priv;
-    if (Number(priv) === 1)
+    if (Number(priv) === 3)
     {
       try
       {
